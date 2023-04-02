@@ -1,3 +1,4 @@
+import { NumericLiteral } from "@babel/types"
 import { string } from "yargs"
 
 
@@ -68,3 +69,53 @@ function buildArray(items: number, sortOrder: 'ascending' | 'descending'): numbe
     let myArray2 = buildArray(8, 'descending');
     console.log(myArray1);
     console.log(myArray2);
+
+    type Audit = {
+        create_at: string,
+        modified_at: string
+    }
+
+    type product = {
+        name: string
+    }
+
+    const Product: Audit & product = {
+        create_at: '',
+        modified_at: '',
+        name: ''
+    }
+
+    function toNumber(s: string) {
+      return parseInt(s)
+    }
+
+    console.log(toNumber)
+
+    const dificulty: number | null = 0
+
+    const user2 = {
+      username: 'Martin',
+      dificulty: dificulty ?? 1,
+    }
+
+    console.log(user2)
+
+    class Personaje {
+      constructor( id: number,name: string, nivel: number, hp: number) {
+        this.id = id
+        this.name = name
+        this.nivel = nivel
+        this.hp = hp
+      }
+        id: number
+        name: string
+        nivel: number
+        hp: number
+
+      SubirNivel(): number {
+        this.nivel = this.nivel + 1
+        return this.nivel
+      }
+    }
+    const personaje = new Personaje(1, 'Martin', 1, 100)
+    personaje.SubirNivel()

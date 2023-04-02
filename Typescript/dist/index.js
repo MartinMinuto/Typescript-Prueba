@@ -61,4 +61,33 @@ let myArray1 = buildArray(12, 'ascending');
 let myArray2 = buildArray(8, 'descending');
 console.log(myArray1);
 console.log(myArray2);
+const Product = {
+    create_at: '',
+    modified_at: '',
+    name: ''
+};
+function toNumber(s) {
+    return parseInt(s);
+}
+console.log(toNumber);
+const dificulty = 0;
+const user2 = {
+    username: 'Martin',
+    dificulty: dificulty !== null && dificulty !== void 0 ? dificulty : 1,
+};
+console.log(user2);
+class Personaje {
+    constructor(id, name, nivel, hp) {
+        this.id = id;
+        this.name = name;
+        this.nivel = nivel;
+        this.hp = hp;
+    }
+    SubirNivel() {
+        this.nivel = this.nivel + 1;
+        return this.nivel;
+    }
+}
+const personaje = new Personaje(1, 'Martin', 1, 100);
+personaje.SubirNivel();
 //# sourceMappingURL=index.js.map
