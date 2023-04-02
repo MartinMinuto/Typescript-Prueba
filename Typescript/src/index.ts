@@ -101,21 +101,48 @@ function buildArray(items: number, sortOrder: 'ascending' | 'descending'): numbe
     console.log(user2)
 
     class Personaje {
-      constructor( id: number,name: string, nivel: number, hp: number) {
+       static equipo: number = 0
+      constructor(
+        public readonly id: number,
+        public name: string,
+        public nivel: number,
+        public _hp: number) {
         this.id = id
         this.name = name
         this.nivel = nivel
-        this.hp = hp
+        this._hp = _hp
       }
-        id: number
-        name: string
-        nivel: number
-        hp: number
 
       SubirNivel(): number {
         this.nivel = this.nivel + 1
         return this.nivel
       }
+
+      getHp(): number {
+        return this._hp
+      }
+
+      get hp(): number {
+         return this._hp
+      }
+
+      static agregarPersonaje(): void {
+        Personaje.equipo ++
+      }
+
+      static getEquipo(): number {
+        return Personaje.equipo
+      }
+
     }
     const personaje = new Personaje(1, 'Martin', 1, 100)
     personaje.SubirNivel()
+    console.log(personaje)
+    
+
+    const personaje1 = new Personaje(2, 'Cristo', 2, 120)
+    Personaje.agregarPersonaje()
+    console.log(Personaje.getEquipo)
+
+    
+    
